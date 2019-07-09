@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <!--
+    Optimizar la cabecera, para que su sitio tenga algo de "encontrabilidad"
+    Sumen un favicon y metadatos descriptivos (Open Graph y Twitter)
+    No olviden una imagen para mostrar (esto es distinto del favicon)
+    -->
+    <title>GRUPO X</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="estilo.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">GRUPO X</h4>
+          <p class="text-muted">A la cabeza de este grupo está [Nombre Apellido], y nuestras visualizaciones tratan sobre [este tema en específico, distinto de la carga académica], que [justificación de su trabajo con ese tema].</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Visualizaciones</h4>
+          <ul class="list-unstyled">
+            <li><a href="segundo.html" class="text-white">Primera visualización</a></li>
+            <li><a href="tercero.html" class="text-white">Segunda visualización</a></li>
+            <li><a href="cuarto.html" class="text-white">Tercera visualización</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</header>
+  <div class="container pb-5">
+    <div class="row pb-5">  
+      <div class="col-sm-10 pt-4 pb-2">
+        <h1>Series que hemos visto</h1>
+      </div>
+      <div class="col-sm-12 p-0 mb-3" id="vis">
+        <!--acá estoy metiendo el canvas con p5.js-->
+      </div>
+      <div class="col-sm-8">
+        <h3 class="border-bottom py-2">Que series hemos visto</h3>
+        <p>Esta visualización trata de representar gráficamente si hemos visto o no las series con la mejor crítica que hay en los últimos 15 años. Se toma como referencia la página web de http://www.sensacine.com y su tabla con las series con la mejor valorización. Entre ellos hay series muy famosas y reconocidad como Breaking Bad, Game of Thrones o Vikings, y otras que son menos conocidas, como la serie turca Erkenci Kus (Pájaro soñador) o Los Soprano pero que cuentan con una muy buena crítica y valoración </p>
+      </div>
+      <div class="col-sm-4 small">
+        <h5 class="border-bottom pt-3 pb-2">Notas</h5>
+        <p>Los datos rondan del valor 0 al 100, para hacer un símil a un Sí o un No, para asi dar una visualización gráfica de las series anterior mensionadas</p>
+      </div>
+    </div><!--acá cierro el row-->
+  </div><!--acá cierro el container-->
+
+  <nav class="navbar fixed-bottom navbar-expand-md navbar-light bg-light">
+    <div class="container border-top">
+      <a class="navbar-brand" href="index.html">Mis visualizaciones</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Portada</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="primera.html">Primera Visualización</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="segunda.html">Segunda visualización</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tercera.html">Tercera Visualización</a>
+          </li>                    
+        </ul>
+      </div>
+    </div>
+</nav>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Estábamos en p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    
+    <div id="chart_div" style="width: 1800px; height: 600px; sm-4"></div>
+      
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Serie', 'Felipe C', 'Felipe S', 'Tomás L', 'Valentina E', 'Deianira', 'Ramiro S', 'Carolina C'],
+          ['Game of Thrones',  0,      0,         0,             100,           0,      100, 100],
+          ['Beat',  0,      0,        0,             0,          0,      0, 0],
+          ['Breaking Bad',  100,      0,        0,             100,           0,      0, 100],
+          ['Hijos de la Anarquía',  0,      0,        0,             0,           0,      0, 0],
+          ['Vikings',  100,      0,         0,             100,          0,      100, 0],
+          ['Los Soprano',  100,      0,         100,             0,          0,      0, 0],
+          ['Outlander',  0,      0,         0,             0,          0,      0, 0],
+          ['Supernatural',  100,      0,         100,             100,          0,      100, 0],
+          ['Erkenci Kus',  0,      0,         0,             0,          0,      0, 0],
+          ['Stranger Things',  0,      100,         100,             0,          100,      100, 100]
+        ]);
+
+        var options = {
+          title : 'Series más Vistas',
+          vAxis: {title: 'Vistos'},
+          hAxis: {title: 'Si o No'},
+          seriesType: 'bars',
+          };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </body>
+</html>
